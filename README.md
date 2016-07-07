@@ -30,7 +30,7 @@ Make sure `Set-ExecutionPolicy` is set to `Bypass` to avoid alerts
 EasyPeasy -All
 ```
 ### Execute a detailed scan
-Find where the accounts with common passwords have accessto and where are those accoutns are currently logged to.
+Find where accounts with common passwords have access to and where those accoutns are currently logged on to.
 ```powershell
 EasyPeasy -Detailed
 ```
