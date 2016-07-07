@@ -1,6 +1,10 @@
 # EasyPeasy
 Find accounts using common and default passwords in Active Directory.
 
+Contributions:
+Invoke-parallel contributed by @RamblingCookieMonster
+PowerView recon module contributed by the PowerSploit team.
+
 ## Execution
 ### Dot source the code and run
 ```powershell
