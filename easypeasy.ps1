@@ -161,7 +161,7 @@
 #======================================================= Retreiving Machines ===================================================
        function Get-DomainComps
     {
-        #Import-Module $path\Recon\Recon.psm1
+        Import-Module $path\Recon\Recon.psm1
         $comps = Get-NetComputer | Out-String
         $parsed_comps = $comps -split '[\r\n]'
         $parsed_comps = $parsed_comps | ? {$_}
