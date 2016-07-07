@@ -64,6 +64,7 @@
             try{
             . $path\invoke-parallel.ps1
             . $path\Invoke-DCsync.ps1
+            Import-Module $path\Recon\Recon.psm1
             }catch{
                 write-host "Some files seem to be missing. If Powershell version is 2, execute the module inside Easy-Peasy directory."
                 break}
@@ -73,7 +74,7 @@
     
           $results = $comps | Invoke-Parallel -Throttle 200  -ErrorAction SilentlyContinue -RunspaceTimeout 5 -ScriptBlock{
             
-                Import-Module $path\Recon\Recon.psm1
+                
                 #. .\easypeasy.ps1.
                 $localadmins = Get-NetLocalGroup -ComputerName $_ -Recurse -WarningAction SilentlyContinue -ErrorAction Ignore 
                 $admins_array = New-Object System.Collections.ArrayList
@@ -111,7 +112,7 @@
         }else{$hashes = Invoke-DCSync}
             
         } catch{
-            write-host "There was some problem retrieving the passwords from active directory. Please make sure the tool runs with replication privileges."
+            write-host "There was some problem retrieving the passwords from active directory. Please make sure the tool runs with replication privileges." -ForegroundColor Red
             break
         }
         Write-Host "Processing list of common passwords" -ForegroundColor Green
@@ -160,7 +161,7 @@
 #======================================================= Retreiving Machines ===================================================
        function Get-DomainComps
     {
-        
+        #Import-Module $path\Recon\Recon.psm1
         $comps = Get-NetComputer | Out-String
         $parsed_comps = $comps -split '[\r\n]'
         $parsed_comps = $parsed_comps | ? {$_}
