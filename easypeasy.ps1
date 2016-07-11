@@ -109,15 +109,17 @@
 
         if(-not $All){
         $hashes = Invoke-DCSync -Users $accts_dcsync
-        }else{$hashes = Invoke-DCSync}
-            
+        }else{
+        $hashes = Invoke-DCSync
+        }
+           
         } catch{
             write-host "There was some problem retrieving the passwords from active directory. Please make sure the tool runs with replication privileges." -ForegroundColor Red
             break
         }
         Write-Host "Processing list of common passwords" -ForegroundColor Green
 
-#======================================================= Loading DC of Common Passwords ===================================================
+#======================================================= Loading list of Common Passwords ===================================================
         if(-not $Hash_File){
         $file = Import-Csv -Path $path\ntlmHashes.csv -Header "column1","column2"
         }else{$file = Import-Csv -Path $Hash_File -Header "column1","column2"}
