@@ -1,4 +1,4 @@
-﻿function Invoke-DCSync
+function Invoke-DCSync
 {
 <#
 .SYNOPSIS
@@ -2946,7 +2946,7 @@ Param(
     #Load the PE reflectively
     #Write-Verbose "Calling Invoke-MemoryLoadLibrary"
 
-    if (((Get-WmiObject -Class Win32_Processor).AddressWidth / 8) -ne [System.Runtime.InteropServices.Marshal]::SizeOf([Type][IntPtr]))
+    if (((Get-WmiObject -Class Win32_Processor).AddressWidth[0] / 8) -ne [System.Runtime.InteropServices.Marshal]::SizeOf([Type][IntPtr]))
     {
         Write-Error "PowerShell architecture (32bit/64bit) doesn't match OS architecture. 64bit PS must be used on a 64bit OS." -ErrorAction Stop
     }
