@@ -70,5 +70,6 @@ cat
 
  # References:
  The tool uses Invoke-DCSync by @monoxgas (Nick Landers), with a little change.
+ 
  The tools was created by Cyberark Labs security princess - @sschwartzer. Thank you.
  
