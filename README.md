@@ -72,4 +72,7 @@ cat
  The tool uses Invoke-DCSync by @monoxgas (Nick Landers), with a little change.
  
  The tools was created by Cyberark Labs security princess - @sschwartzer. Thank you.
- 
+
+# License
+
+This repository is licensed under Apache License 2.0 - see [`LICENSE`](LICENSE) for more details.
